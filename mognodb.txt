@@ -1,0 +1,4 @@
+qr_code = {
+    "name": Cpto-6-11whatevs
+    "Is_taken": f_cislo or no
+}

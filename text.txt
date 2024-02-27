@@ -1,0 +1,8 @@
+Připojit se na pymongo jenom přes jednu tabulku.
+po vytvoření classu QR_codu -> nazev, (vlastnosti z jména pomocí fce)
+funkce -> přiřaď na místo studenta a odeber
+
+Student - string (asi F-Cislo + jmeno?) -> do pymonga hodis jenom na Is_taken tenhle atribut
+
+frontend -> display všechny QR_cody, které jsou occupied (Is_taken != len(1))
+Login ->

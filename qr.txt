@@ -1,0 +1,3 @@
+qr codes -> limitovaný počet (30 na třídu whatever)
+k jednotlivým qr codům přiřazuji studenty - pepa dostane qr kód jedna a tak
+
