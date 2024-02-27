@@ -2,8 +2,7 @@ import pymongo
 
 class DB:
 
-    def __init__(self, users, qr):
-        self.users = users
+    def __init__(self,qr):
         self.qr = qr
 
     def add_student(self, username, qr_code):
@@ -20,9 +19,10 @@ class DB:
         return 0
 
     def login_user(self, username, qr_code):
-        available_qr = self.qr.find_one({"qr_code": qr_code, "is_taken": "0"})
+        available_qr = self.qr.find_one({"qr_code": str(qr_code), "Is_taken": "0"})
         if available_qr:
-            self.qr.update_one({"qr_code": qr_code}, {"$set": {"is_taken": username}})
-            return True
+            self.qr.update_one({"qr_code": qr_code}, {"$set": {"Is_taken": username}})
+            user = self.qr.find_one({"qr_code": str(qr_code)})
+            return user
         else:
             return False

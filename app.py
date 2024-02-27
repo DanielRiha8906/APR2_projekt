@@ -4,16 +4,17 @@ from backend.classes.database import DB
 
 app = Flask(__name__)
 # MongoDB setup
-client = MongoClient("mongodb://admin:admin@mongodb:27017/APR_2", connect=False)
-users_collection = client["users"]["users"]
-qr_collection = client["QR_code"]["QR_code"]
-db = DB(users_collection, qr_collection)
+client = MongoClient("mongodb://admin:admin@mongodb:27017", connect=False)
+db_name = client['APR2']
+collection = db_name['QR_code']
+db = DB(qr=db_name["QR_code"]) # pouziti docker mongo
+#db = DB(users=collection_users, qr=collection)
 
 @app.route('/', methods=["GET", "POST"])
 def home():
     if request.method == "GET":
         return render_template('home.html')
-
+#I'm gonna fucking kill myself
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == 'POST':
@@ -28,7 +29,7 @@ def login():
             return redirect('/')
         else:
             flash('Login unsuccessful. Please check username and qr_code', 'danger')
-            return redirect('/')
+            return redirect('/about')
     else:
         return render_template('login.html')
 
