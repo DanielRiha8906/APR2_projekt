@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="flex justify-center flex-col w-[40rem] mx-auto mb-20 gap-5">
+  {% for post in posts %}
+  <div class="px-10 py-10 border rounded-lg border-gray-200 relative">
+    <a href="#" class="group block flex-shrink-0">
+      <div class="flex items-center">
+        <div class="ml-3">
+          <p class="text-sm leading-6 font-medium text-white">
+            {{ post.Is_taken }}
+            <span
+              class="text-sm leading-5 font-medium text-gray-400 group-hover:text-gray-300 transition ease-in-out duration-150">
+              {{ post.qr_code }}
+            </span>
+          </p>
+        </div>
+      </div>
+    </a>
+    <p class="text-lg text-white items-center hover:text-pink-600 break-long-words" style="max-width: 40ch;">
+      {{ post.content }}
+    </p>
+</div>
+  {% endfor %}
+</div>
+{% endblock content %}

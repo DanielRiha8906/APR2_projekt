@@ -1,4 +1,5 @@
 qr_code = {
+    "Is_taken": if not taken -> "0"  if it is taken -> "username"
     "name": Cpto-6-11whatevs
     "Is_taken": f_cislo or no
 }
