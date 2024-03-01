@@ -7,7 +7,6 @@ class DB:
     #testing purpose only
     def add_student(self, username, qr_code):
         existing_doc = self.qr.find_one({"qr_code": qr_code})
-
         if existing_doc:
             self.qr.update_one({"qr_code": qr_code}, {"$set": {"Is_taken": username}})
             print("Updated document")
@@ -32,3 +31,6 @@ class DB:
             return user
         else:
             return False
+    def reset_database(self):
+        self.qr.update_many({}, {"$set": {"Is_taken": "0"}})
+        print("Database reset completed")

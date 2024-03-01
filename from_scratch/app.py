@@ -17,7 +17,9 @@ def home():
     if request.method == "GET":
         posts = db.qr.find({"Is_taken": {"$ne" :"0"}})
         return render_template('home.html', posts = posts)
-
+@app.route('/about')
+def about():
+    return render_template('about.html')
 # Is not an actual login -> asks for QR_code -> f Is_taken != 0 -> changes It_taken to username
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -43,10 +45,10 @@ def api_post_endpoint():
     student_qr_code = request.get_json()
     if student_qr_code:
         student_loads_qr_code = db.login_user(student_qr_code["user"], student_qr_code["qr_code"])
-        if not student_loads_qr_code:
+        if student_loads_qr_code == None:
             #QR_code does not exist
             return "does not exist", 404
-        if student_loads_qr_code:
+        elif student_loads_qr_code:
             #It works as intended
             return "success", 200
         else:
