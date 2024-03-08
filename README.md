@@ -1,6 +1,6 @@
-### Projekt pro doktora Škvora a doktora Fišera
+# Projekt pro doktora Škvora a doktora Fišera
 ## Jak to rozjet?
-# Je nutno to zapnout v tomhle pořadí kvůli portům!!
+### Je nutno to zapnout v tomhle pořadí kvůli portům!!
 - jako první zapnout a buildnout docker v python kódu
 docker build -t apr:sem .
 docker-compose up --build
